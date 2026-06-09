@@ -31,7 +31,7 @@ class MyDate:
             max_days = 29
 
         if not (1 <= day <= max_days):
-            ValueError("Please enter Valide date and try again")
+            raise ValueError("Please enter Valide date and try again")
         
         return True
 
@@ -115,5 +115,5 @@ try:
     result = date.isValidDate(day,month,year)
 except:
     print("Please enter Valid value and try again!")
-    
+
 print(date)
