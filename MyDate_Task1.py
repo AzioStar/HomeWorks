@@ -21,23 +21,23 @@ class MyDate:
     @staticmethod
     def isValidDate(day, month, year):
         if not (1 <= year <= 9999):
-            return False
+            raise ValueError("Please enter Valide date and try again")
         
         if not (1 <= month <= 12):
-            return False
+            raise ValueError("Please enter Valide date and try again")
     
         max_days = MyDate.Days_In_Months[month]
         if month == 2 and calendar.isleap(year):
             max_days = 29
 
         if not (1 <= day <= max_days):
-            return False
+            ValueError("Please enter Valide date and try again")
         
         return True
 
     def setDate(self, day, month, year):
         if not self.isValidDate(day, month, year):
-            return ValueError
+            raise ValueError("Please enter Valide date and try again")
         self.__day = day
         self.__month = month
         self.__year = year
@@ -113,9 +113,7 @@ try:
     year = int(input("Pleaes enter the year: "))
     date = MyDate(day,month,year)
     result = date.isValidDate(day,month,year)
-    if result:
-        print(date)
-    else:
-        print("Please enter valid Value and try again! ")
 except:
     print("Please enter Valid value and try again!")
+    
+print(date)
